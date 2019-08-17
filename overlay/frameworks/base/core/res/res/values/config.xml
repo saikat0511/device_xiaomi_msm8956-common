@@ -336,6 +336,8 @@
         <item>"/system/framework/boot-core-libart.vdex"</item>
         <item>"/system/framework/boot-QPerformance.vdex"</item>
         <item>"/system/framework/boot-UxPerformance.vdex"</item>
+        <item>"/system/priv-app/SystemUIGoogle/oat/arm64/SystemUIGoogle.vdex"</item>
+        <item>"/system/priv-app/SystemUIGoogle/oat/arm64/SystemUIGoogle.odex"</item>
         <item>"/system/lib64/libsurfaceflinger.so"</item>
     </string-array>
 
