@@ -77,6 +77,9 @@ echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
 echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
 echo 35 > /proc/sys/vm/swappiness
 echo 0 > /proc/sys/vm/page-cluster
+echo 40 > /proc/sys/vm/dirty_ratio
+echo 20 > /proc/sys/vm/dirty_background_ratio
+echo 1 > /proc/sys/vm/overcommit_memory
 
 minfree_series=`cat /sys/module/lowmemorykiller/parameters/minfree`
 minfree_1="${minfree_series#*,}" ; rem_minfree_1="${minfree_1%%,*}"
@@ -108,8 +111,7 @@ else
     panel=${panel:2:4}
 fi
 
-# Apply Scheduler and Governor settings for 8976
-# SoC IDs are 266, 274, 277, 278
+# Apply Scheduler and Governor settings for 8956
 # HMP scheduler (big.Little cluster related) settings
 echo 95 > /proc/sys/kernel/sched_upmigrate
 echo 85 > /proc/sys/kernel/sched_downmigrate
@@ -228,7 +230,7 @@ echo 50000 > /proc/sys/kernel/sched_freq_dec_notify
 # Enable timer migration to little cluster
 echo 1 > /proc/sys/kernel/power_aware_timer_migration
 
-# Start energy-awareness for 8952
+# Start energy-awareness for 8956
 start vendor.energy-awareness
 
 #enable sched colocation and colocation inheritance
@@ -241,5 +243,5 @@ misc_link=$(ls -l /dev/block/bootdevice/by-name/misc)
 real_path=${misc_link##*>}
 setprop persist.vendor.mmi.misc_dev_path $real_path
 
-# Set BFQ as default io-schedular after boot
+# Set CFQ as default io-schedular after boot
 setprop sys.io.scheduler "cfq"
