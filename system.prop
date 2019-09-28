@@ -63,6 +63,12 @@ dalvik.vm.dex2oat-threads=6
 # Dex2oat use 6 cores during boot image dex compilation
 dalvik.vm.image-dex2oat-threads=6
 
+# Dex2oat filter options to optimize compilation
+dalvik.vm.image-dex2oat-filter=speed
+dalvik.vm.dex2oat-filter=speed
+
+# Dex2oat swap disable
+dalvik.vm.dex2oat-swap=false
 
 # Data modules
 ro.vendor.use_data_netmgrd=true
