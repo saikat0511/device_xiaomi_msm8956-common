@@ -238,6 +238,9 @@ echo 130 > /proc/sys/kernel/sched_grp_upmigrate
 echo 110 > /proc/sys/kernel/sched_grp_downmigrate
 echo   1 > /proc/sys/kernel/sched_enable_thread_grouping
 
+# Enable Fingerprint Boost
+echo 1 > /sys/kernel/fp_boost/enabled
+
 # Parse misc partition path and set property
 misc_link=$(ls -l /dev/block/bootdevice/by-name/misc)
 real_path=${misc_link##*>}
@@ -245,3 +248,7 @@ setprop persist.vendor.mmi.misc_dev_path $real_path
 
 # Set CFQ as default io-schedular after boot
 setprop sys.io.scheduler "cfq"
+
+# Set Sound Control parameters after boot
+echo 5 > /sys/kernel/sound_control/speaker_gain
+echo "3 3" > /sys/kernel/sound_control/earpiece_gain

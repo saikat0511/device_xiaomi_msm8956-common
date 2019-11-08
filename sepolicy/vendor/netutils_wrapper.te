@@ -1,0 +1,2 @@
+allow netutils_wrapper netmgrd:file read;
+allow netutils_wrapper tmpfs:dir search;
