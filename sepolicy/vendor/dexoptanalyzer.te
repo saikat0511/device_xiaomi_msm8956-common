@@ -1,1 +1,0 @@
-allow dexoptanalyzer system_data_file:lnk_file { open read };
