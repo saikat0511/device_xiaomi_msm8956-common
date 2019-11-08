@@ -232,7 +232,7 @@
         <item>225</item>
         <item>255</item>
     </integer-array>
-    
+
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
     <integer name="config_screenBrightnessSettingDefault">98</integer>
@@ -246,7 +246,7 @@
     <!-- MMS user agent prolfile url -->
     <string name="config_mms_user_agent_profile_url" translatable="false"
             >http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
- 
+
      <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
 
@@ -369,13 +369,13 @@
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveBatteryLed">true</bool>
- 
- 
+
+
     <!-- Does the battery LED support multiple colors?
          Used to decide if the user can change the colors -->
     <bool name="config_multiColorBatteryLed">true</bool>
 
-   
+
 
     <!-- Hardware 'face' keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -389,7 +389,7 @@
          config to 19. -->
     <integer name="config_deviceHardwareKeys">83</integer>
 
-    <!-- Boolean indicating whether we want button brightness support --> 
+    <!-- Boolean indicating whether we want button brightness support -->
     <bool name="config_button_brightness_support">true</bool>
 
     <!-- Whether device supports double tap to wake -->
@@ -442,7 +442,7 @@
 
     <!-- Whether device ignores the RSSNR signal implementation -->
     <bool name="config_ignoreRssnrSignalLevel">true</bool>
-    
+
     <!-- Indicate whether to allow the device to suspend when the screen is off
           due to the proximity sensor.  This resource should only be set to true
           if the sensor HAL correctly handles the proximity sensor as a wake-up source.
@@ -467,7 +467,3 @@
     <integer name="config_lightSensorWarmupTime">200</integer>
 
 </resources>
-
-
-
-

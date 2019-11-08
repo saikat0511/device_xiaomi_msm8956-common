@@ -203,6 +203,7 @@
 /dev/tsc_ci0              0660   media       media
 
 # sensors
+/dev/sensors              0660   system     system
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 enable         0660    input    system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 poll_delay     0660    input    system
@@ -282,7 +283,7 @@
 /dev/block/platform/soc.0/7824900.sdhci/by-name/config    0600   system     system
 
 # Kmsg device
-/dev/kmsg                                               0620   root       system 
+/dev/kmsg                                               0620   root       system
 
 # For lirc
 /dev/lirc0          0660   system     system
@@ -298,4 +299,3 @@
 
 # sys-fs display
 /sys/class/graphics/fb*     dynamic_fps              0664    system  graphics
-

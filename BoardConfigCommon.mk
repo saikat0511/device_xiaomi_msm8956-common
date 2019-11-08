@@ -57,7 +57,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8956
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -104,14 +104,11 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2
 TARGET_TS_MAKEUP := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-        /system/bin/mm-qcamera-daemon=28
+        /system/bin/mm-qcamera-daemon=23
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 WITH_CUSTOM_CHARGER := false
-
-# CNE
-BOARD_USES_QCNE := true
 
 # Dex
 ifeq ($(HOST_OS),linux)
@@ -144,6 +141,9 @@ TARGET_HW_DISK_ENCRYPTION := true
 TARGET_LEGACY_HW_DISK_ENCRYPTION := true
 TARGET_KEYMASTER_SKIP_WAITING_FOR_QSEE := true
 
+# Extended filesystem support
+TARGET_EXFAT_DRIVER := sdfat
+
 # Exclude serif fonts for saving system.img size.
 EXCLUDE_SERIF_FONTS := true
 
@@ -157,6 +157,12 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 
 TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
 
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /mnt/vendor/persist:/persist
+
+BOARD_ROOT_EXTRA_FOLDERS := \
+    /firmware \
+    /dsp
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
@@ -175,7 +181,7 @@ USE_DEVICE_SPECIFIC_LOC_API := true
 TARGET_NO_RPC := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_INIT_VENDOR_LIB := //$(VENDOR_PATH):libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_RECOVERY_DEVICE_MODULES := libinit_msm
 
@@ -191,10 +197,6 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
-# Power
-TARGET_HAS_NO_WLAN_STATS := true
-TARGET_USES_INTERACTION_BOOST := true
-
 # Properties
 TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 
@@ -208,7 +210,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # RIL
 PROTOBUF_SUPPORTED := true
-TARGET_RIL_VARIANT := caf
 USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
 TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
 
@@ -239,6 +240,7 @@ BOARD_HOSTAPD_DRIVER        := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_AP      := "ap"
 WIFI_DRIVER_FW_PATH_STA     := "sta"
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/msm8956-common/BoardConfigVendor.mk
@@ -249,3 +251,4 @@ TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/doubletap2wake"
 # Enable DRM plugins 64 bit compilation
 TARGET_ENABLE_MEDIADRM_64 := true
 
+BUILD_BROKEN_DUP_RULES := true
