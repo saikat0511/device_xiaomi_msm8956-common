@@ -12,6 +12,7 @@
 /data/decrypt.txt                                                     u:object_r:decrypt_file:s0
 
 # DSP
+#/dsp(/.*)?                 					      u:object_r:tmp_root_mount_file:s0
 /dev/block/platform/soc.0/7824900.sdhci/by-name/dsp                   u:object_r:dsp_block_device:s0
 
 # DRM
@@ -43,6 +44,7 @@
 /(vendor|system/vendor)/usr/keylayout(/.*)?                           u:object_r:keylayout_file:s0
 
 # Persist
+#/persist(/.*)?             					      u:object_r:tmp_root_mount_file:s0
 /dev/block/platform/soc.0/7824900.sdhci/by-name/persist               u:object_r:persist_block_device:s0
 
 # Subsystem restart
@@ -65,3 +67,6 @@
 
 # Loop
 /sys/devices/virtual/block/loop[0-9]+/loop(/.*)?                      u:object_r:sysfs_loop:s0
+
+# Firemware
+/firmware(/.*)?            					      u:object_r:firmware_file:s0
