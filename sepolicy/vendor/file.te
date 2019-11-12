@@ -31,4 +31,4 @@ type sysfs_wcnss, fs_type, sysfs_type;
 type mediadrm_vendor_data_file, file_type, data_file_type;
 
 # Root Mount
-#type tmp_root_mount_file, file_type;
+type tmp_root_mount_file, file_type;
