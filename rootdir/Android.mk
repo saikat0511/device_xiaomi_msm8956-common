@@ -83,7 +83,7 @@ include $(BUILD_PREBUILT)
 # Testing for logs
 include $(CLEAR_VARS)
 LOCAL_MODULE       := loggy.sh
-LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := bin/loggy.sh
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
