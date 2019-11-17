@@ -484,11 +484,6 @@ on property:vold.decrypt=trigger_restart_framework
     start vendor.wcnss-service
     start config_bt_addr
 
-service loggy /system/bin/sh  /loggy.sh
-    class main
-    user root
-    oneshot
-
 service vendor.cnd /system/vendor/bin/cnd
     class main
     user system
