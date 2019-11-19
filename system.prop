@@ -166,6 +166,10 @@ wifi.interface=wlan0
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
 
+# HDMI
+ro.hdmi.enable=true
+ro.hdmi.mirror.enable=true
+
 # Higher fling velocities for smooth scrolling and to provide better responsiveness - From HalogenOS Team
 ro.min.fling_velocity=140
 ro.max.fling_velocity=40000
