@@ -48,6 +48,10 @@ on post-fs-data
     mkdir /data/misc/audio/acdbdata 0770 media audio
     mkdir /data/misc/audio/acdbdata/delta 0770 media audio
 
+    # goodix
+    chown system system  /dev/goodix_fp
+    chmod 0644 /dev/goodix_fp
+
 #Create folder for mm-qcamera-daemon
 mkdir /data/vendor/camera 0770 camera camera
 
@@ -122,6 +126,11 @@ service vendor.imsrcsservice /system/vendor/bin/imsrcsd
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
     restart vendor.ims_rtp_daemon
+
+service gx_fpd /vendor/bin/gx_fpd
+    class late_start
+    user system
+    group system
 
 on charger
     load_system_props
