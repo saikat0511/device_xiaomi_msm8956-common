@@ -249,6 +249,9 @@ setprop persist.vendor.mmi.misc_dev_path $real_path
 # Set CFQ as default io-schedular after boot
 setprop sys.io.scheduler "cfq"
 
+# Set Saturation Intensity to 35
+echo 260 > /sys/devices/platform/kcal_ctrl.0/kcal_sat
+
 # Set Sound Control parameters after boot
 echo 5 > /sys/kernel/sound_control/speaker_gain
 echo "3 3" > /sys/kernel/sound_control/earpiece_gain
